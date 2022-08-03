@@ -3,6 +3,28 @@ $requirements = [
     "mysql" => "5.7.22",
 ];
 
+function getUserIcon($rank){
+    if($rank == "owner") {
+        return "<img src='css/img/gameicon/shield_go.png'> ";
+    }elseif($rank == "superadmin"){
+            return "<img src='css/img/gameicon/shield_add.png'> ";
+        }elseif($rank == "admin"){
+        return "<img src='css/img/gameicon/shield.png'> ";
+    }
+    }
+
+
+    function checkOnline($timestamp){
+        $timestamp = strtotime($timestamp);
+        $minsago = strtotime(date("Y-m-d H:i:s", strtotime("-5 minutes")));
+
+        if($timestamp > $minsago) {
+            return "<img src='css/img/gameicon/online.png'> online </img>";
+        }else{
+            return (date("d.m.Y H:i",$timestamp));
+        }
+    }
+
 function calcSteamID($steamID, $onlyID = false){
     $steam_id = strtolower($steamID);
     if (substr($steam_id, 0, 7) == 'steam_0') {

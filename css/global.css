@@ -3,7 +3,7 @@
     }
     body {
         background-color: #000;
-        background-image: url(img/bg.png);
+        background-image: url(img/bg1.png);
         background-repeat: repeat-x;
         margin-left: 0px;
         margin-top: 0px;
@@ -30,19 +30,7 @@
         margin-bottom: 0px;
         margin-left: 0px;
     }
-    .status {
-        padding: 6px;
-        float: left;
-        height: auto;
-        width: 1050px;
-        margin-top: 0px;
-        margin-right: 0px;
-        margin-bottom: 6px;
-        margin-left: 0px;
-        border: 1px solid #333;
-        background-image: url(img/listbg.png);
-        background-repeat: repeat;
-    }
+
     .left {
         margin: 0px;
         padding: 0px;
@@ -68,6 +56,19 @@
 
         color: #F00;
         font-weight: bold;
+    }
+    #table-title{
+        font-size: 22px;
+        color: #0079BF;
+
+    }
+.genericTable{
+
+    margin-left: 10%;
+    margin-right: 10%;
+}
+    #playertable a{
+        color:white;
     }
     .header {
         background-image: url(img/logo.png);
@@ -99,3 +100,20 @@
     height:20px;
 
 }
+#servers{
+    margin-top: 2em;
+}
+    #playertable th, .servertable th {
+        background-image:  url("img/bg.png");
+    }
+
+    [class^="dataTables_"]{
+        color: white !important;;
+    }
+    [id^="playertable_"]{
+        color: white !important;
+    }
+    [class^="paginate"]{
+        color: white !important;
+        background-color:lightblue !important;
+    }
