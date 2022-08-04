@@ -1,119 +1,148 @@
-    body,td,th {
-        color: #FFF
-    }
-    body {
-        background-color: #000;
-        background-image: url(img/bg1.png);
-        background-repeat: repeat-x;
-        margin-left: 0px;
-        margin-top: 0px;
-        margin-right: 0px;
-        margin-bottom: 0px;
-    
-    }
-    .container {
-        padding: 0px;
-        height: auto;
-        width: 1050px;
-        margin-top: 0px;
-        margin-right: auto;
-        margin-bottom: 0px;
-        margin-left: auto;
-    }
-    .content {
-        padding: 0px;
-        float: left;
-        height: auto;
-        width: 1050px;
-        margin-top: 12px;
-        margin-right: 0px;
-        margin-bottom: 0px;
-        margin-left: 0px;
-    }
+body, td, th {
+    color: #FFF
+}
 
-    .left {
-        margin: 0px;
-        padding: 0px;
-        color: #EEE;
-        font-weight: bold;
-    }
-    .Online {
-        margin: 0px;
-        padding: 0px;
-        float: right;
-        height: auto;
-        width: 160px;
+body {
+    background-color: #000;
+    background-image: url(img/bg1.png);
+    background-repeat: repeat-x;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
 
-        color: #0C3;
-        font-weight: bold;
-    }
-    .Offline {
-        margin: 0px;
-        padding: 0px;
-        float: right;
-        height: auto;
-        width: 160px;
+}
 
-        color: #F00;
-        font-weight: bold;
-    }
-    #table-title{
-        font-size: 22px;
-        color: #0079BF;
+#cards{
+    margin-top:3em;
+    margin-left:30%;
+    width:70%;
+}
+#card{
+    width: 60%;
+}
+#cardleft{
+    width: 60%;
+    margin-left:30%
+}
+.card-text{
+    color: #0079BF;
+}
 
-    }
-.genericTable{
+.container {
+    padding: 0px;
+    height: auto;
+    width: 1050px;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+}
 
+.content {
+    padding: 0px;
+    float: left;
+    height: auto;
+    width: 1050px;
+    margin-top: 12px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+.left {
+    margin: 0px;
+    padding: 0px;
+    color: #EEE;
+    font-weight: bold;
+}
+
+.Online {
+    margin: 0px;
+    padding: 0px;
+    float: right;
+    height: auto;
+    width: 160px;
+
+    color: #0C3;
+    font-weight: bold;
+}
+
+.Offline {
+    margin: 0px;
+    padding: 0px;
+    float: right;
+    height: auto;
+    width: 160px;
+
+    color: #F00;
+    font-weight: bold;
+}
+
+#table-title {
+    font-size: 22px;
+    color: #0079BF;
+
+}
+
+.genericTable {
+    margin-top: 10%;
     margin-left: 10%;
     margin-right: 10%;
 }
-    #playertable a{
-        color:white;
-    }
-    .header {
-        background-image: url(img/logo.png);
-        background-repeat: no-repeat;
-        margin: 0px;
-        padding: 0px;
-        float: left;
-        height: 75px;
-        width: 1050px;
 
-    }
-    pull-right {
-      float: right;
-    }
-
-#content-title
-{
-	font-size: 18px;
-	color: #0079BF;
-}
-#topic-title
-{
-	font-size: 18px;
-	color: #0079BF;
-	margin-top:10px;		
+#playertable a {
+    color: white;
 }
 
-#profilepic{
-    height:20px;
+.header {
+    background-image: url(img/logo.png);
+    background-repeat: no-repeat;
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    height: 75px;
+    width: 1050px;
 
 }
-#servers{
+
+pull-right {
+    float: right;
+}
+
+#content-title {
+    font-size: 18px;
+    color: #0079BF;
+}
+
+#topic-title {
+    font-size: 18px;
+    color: #0079BF;
+    margin-top: 10px;
+}
+
+#profilepic {
+    height: 20px;
+
+}
+
+#servers {
     margin-top: 2em;
 }
-    #playertable th, .servertable th {
-        background-image:  url("img/bg.png");
-    }
 
-    [class^="dataTables_"]{
-        color: white !important;;
-    }
-    [id^="playertable_"]{
-        color: white !important;
-    }
-    [class^="paginate"]{
-        color: white !important;
-        background-color:lightblue !important;
-    }
+#playertable th, .servertable th {
+    background-image: url("img/bg.png");
+}
+
+[class^="dataTables_"] {
+    color: white !important;;
+}
+
+[id^="playertable_"] {
+    color: white !important;
+}
+
+[class^="paginate"] {
+    color: white !important;
+    background-color: lightblue !important;
+}

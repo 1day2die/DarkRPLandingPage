@@ -20,8 +20,6 @@ $time = $time[1] + $time[0];
 $start = $time;
 
 
-
-
 // Config to your database - Edit this!
 $dbhost = getEnvironmentValue("MYSQL_HOST");            // Server IP/Domain of where the datab-base resides.
 $dbdatabase = getEnvironmentValue("MYSQL_DB");            // Data-base Name.
@@ -60,12 +58,12 @@ if ($db->connect_error) {
 </head>
 <body>
 <div class="headercontent"> <!-- open headercontent -->
-<nav class="navbar navbar-dark bg-dark">
-  <span class="navbar-brand mb-0 h1">Hafuga Gameserver</span>
-</nav>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">Hafuga Gameserver</span>
+    </nav>
 </div>
 <div class="genericTable" id="servers">
-  <table class="table table-dark servertable">
+    <table class="table table-dark servertable">
         <thead>
         <tr>
             <th>#</th>
@@ -123,40 +121,65 @@ if ($db->connect_error) {
         </tbody>
     </table>
 </div>
+
+<div class="row" id="cards">
+    <div class="col-sm-3">
+        <div class="card bg-dark" id="card">
+            <a href="bans">
+                <img src="css/img/logo.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">View our Banlist.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card bg-dark" id="cardleft">
+            <a href="donate">
+                <img src="css/img/donate.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Donate to our Servers.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
 <?php
-    $query = "SELECT * FROM `playersaving_data`";
-    $playerdb = $db->query($query);
-    $count = mysqli_fetch_array($db->query("SELECT COUNT(*) FROM `playersaving_data`"));
+$query = "SELECT * FROM `playersaving_data`";
+$playerdb = $db->query($query);
+$count = mysqli_fetch_array($db->query("SELECT COUNT(*) FROM `playersaving_data`"));
 ?>
 
-<div class="genericTable">
-<div id='table-title'>Listing a total of <?php echo $count[0]; ?> Players</div>
-<table class="table table-dark table-hover" id="playertable">
-    <thead>
-    <tr>
-        <th>Username</th>
-        <th>Job</th>
-        <th>Money</th>
-        <th>Last online</th>
-    </tr>
-    </thead>
-    <tbody>
-
-    <?php
-
-    while ($row = mysqli_fetch_assoc($playerdb)) { ?>
+<div class="genericTable mt-5">
+    <div id='table-title'>Listing a total of <?php echo $count[0]; ?> Players</div>
+    <table class="table table-dark table-hover" id="playertable">
+        <thead>
         <tr>
-            <td><?php echo getUserIcon($row['rank']) . "<a href='https://steamcommunity.com/profiles/".$row['steamID64']."' target='_blank'>". $row['username']; ?></a></td>
-            <td><?php echo $row['job']; ?></td>
-            <td><?php echo "<img src='css/img/gameicon/money.png'> ".number_format($row['money'], 2)."€"; ?></td>
-            <td><?php echo checkOnline( $row['timestamp']) ?></td>
+            <th>Username</th>
+            <th>Job</th>
+            <th>Money</th>
+            <th>Last online</th>
         </tr>
-        <?php
-    }
-    ?>
+        </thead>
+        <tbody>
 
-    </tbody>
-</table>
+        <?php
+
+        while ($row = mysqli_fetch_assoc($playerdb)) { ?>
+            <tr>
+                <td><?php echo getUserIcon($row['rank']) . "<a href='https://steamcommunity.com/profiles/" . $row['steamID64'] . "' target='_blank'>" . $row['username']; ?></a></td>
+                <td><?php echo $row['job']; ?></td>
+                <td><?php echo "<img src='css/img/gameicon/money.png'> " . number_format($row['money'], 2) . "€"; ?></td>
+                <td><?php echo checkOnline($row['timestamp']) ?></td>
+            </tr>
+            <?php
+        }
+        ?>
+
+        </tbody>
+    </table>
 </div>
 <footer class="footer mt-auto py-3 bg-dark">
 
