@@ -23,16 +23,15 @@ $start = $time;
 // Config to your database - Edit this!
 $dbhost = getEnvironmentValue("MYSQL_HOST");            // Server IP/Domain of where the datab-base resides.
 $dbdatabase = getEnvironmentValue("MYSQL_DB");            // Data-base Name.
+$serverDB = getEnvironmentValue("MYSQL_BANSDB");
 $dbuser = getEnvironmentValue("MYSQL_USER");                // Username.
 $dbpassword = getEnvironmentValue("MYSQL_PASSWORD");
 $webname = getEnvironmentValue("COMMUNITY_NAME");
+$bansenabled = getEnvironmentValue("ENABLE_ULX_BAN_SYSTEM");
 ?>
 <?php
 // MySQL Connect/Query
-$connection = new mysqli($dbhost, $dbuser, $dbpassword, "games_gmodbans");
-if ($connection->connect_error) {
-    die("DB Connection failed: " . $connection->connect_error);
-}
+
 $db = new mysqli($dbhost, $dbuser, $dbpassword, $dbdatabase);
 if ($db->connect_error) {
     die("DB Connection failed: " . $db->connect_error);
@@ -62,6 +61,13 @@ if ($db->connect_error) {
         <span class="navbar-brand mb-0 h1">Hafuga Gameserver</span>
     </nav>
 </div>
+<?php
+if($bansenabled == "true") {
+    try {
+        $connection = new mysqli($dbhost, $dbuser, $dbpassword, $serverDB);
+
+    ?>
+
 <div class="genericTable" id="servers">
     <table class="table table-dark servertable">
         <thead>
@@ -121,6 +127,14 @@ if ($db->connect_error) {
         </tbody>
     </table>
 </div>
+<?php
+
+    } catch (Exception $e) {
+        echo ' <div class="alert alert-danger"> <b>Couldnt connect to bans db. Maybe your User or Password is wrong? </b>: ' . $e . '</div>';
+    }
+}
+
+?>
 <!--
 <div class="row" id="cards">
     <div class="col-sm-3">
@@ -195,7 +209,7 @@ $count = mysqli_fetch_array($db->query("SELECT COUNT(*) FROM `playersaving_data`
     $(document).ready(function () {
         $('#playertable').dataTable({
             "order": [[2, "desc"]],
-            "pageLength": 15,
+            "pageLength": 12,
         });
     });
 </script>
