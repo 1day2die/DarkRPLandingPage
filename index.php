@@ -24,8 +24,8 @@ $start = $time;
 $dbhost = getEnvironmentValue("MYSQL_HOST");            // Server IP/Domain of where the datab-base resides.
 $dbdatabase = getEnvironmentValue("MYSQL_DB");            // Data-base Name.
 $dbuser = getEnvironmentValue("MYSQL_USER");                // Username.
-$dbpassword = getEnvironmentValue("MYSQL_PASSWORD");                    // Password.
-$webname = getEnvironmentValue("COMMUNITY_NAME");        // Title of Community/Server/Website/Domain, pick one.
+$dbpassword = getEnvironmentValue("MYSQL_PASSWORD");
+$webname = getEnvironmentValue("COMMUNITY_NAME");
 ?>
 <?php
 // MySQL Connect/Query
@@ -121,7 +121,7 @@ if ($db->connect_error) {
         </tbody>
     </table>
 </div>
-
+<!--
 <div class="row" id="cards">
     <div class="col-sm-3">
         <div class="card bg-dark" id="card">
@@ -144,6 +144,7 @@ if ($db->connect_error) {
         </div>
     </div>
 </div>
+-->
 
 
 <?php
@@ -181,7 +182,7 @@ $count = mysqli_fetch_array($db->query("SELECT COUNT(*) FROM `playersaving_data`
         </tbody>
     </table>
 </div>
-<footer class="footer mt-auto py-3 bg-dark">
+<footer class="footer fixed-bottom mt-auto py-3 bg-dark">
 
     <span id="credits" class="text-muted">Landingpage by <a
                 href="https://github.com/1day2die">1Day2Die</a></span>
@@ -194,6 +195,7 @@ $count = mysqli_fetch_array($db->query("SELECT COUNT(*) FROM `playersaving_data`
     $(document).ready(function () {
         $('#playertable').dataTable({
             "order": [[2, "desc"]],
+            "pageLength": 15,
         });
     });
 </script>
