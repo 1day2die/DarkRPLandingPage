@@ -8,7 +8,7 @@ function getUserIcon($rank){
         return "<img src='css/img/gameicon/shield_go.png'> ";
     }elseif($rank == "superadmin"){
             return "<img src='css/img/gameicon/shield_add.png'> ";
-        }elseif($rank == "admin"){
+        }elseif($rank == "admin") {
         return "<img src='css/img/gameicon/shield.png'> ";
     }
     }

@@ -28,6 +28,7 @@ $dbuser = getEnvironmentValue("MYSQL_USER");                // Username.
 $dbpassword = getEnvironmentValue("MYSQL_PASSWORD");
 $webname = getEnvironmentValue("COMMUNITY_NAME");
 $bansenabled = getEnvironmentValue("ENABLE_ULX_BAN_SYSTEM");
+$bansURL = getEnvironmentValue("ULX_BAN_SYSTEM_URL");
 ?>
 <?php
 // MySQL Connect/Query
@@ -78,6 +79,8 @@ if($bansenabled == "true") {
             <th>Gamemode</th>
             <th>Map</th>
             <th>Players</th>
+            <?php if($bansURL){ echo "<th>BanList</th>";}?>
+
         </tr>
         </thead>
         <tbody>
@@ -118,8 +121,9 @@ if($bansenabled == "true") {
                         :<?php echo $port; ?></a></td>
                 <td><?php echo $row['HostName']; ?></td>
                 <td><?php echo htmlspecialchars($Info['ModDesc']); ?></td>
-                <td><?php echo htmlspecialchars($Info['Map']); ?></td>
-                <td><?php echo htmlspecialchars($Info['Players']) . " / " . htmlspecialchars($Info['MaxPlayers']); ?></td>
+                <td><?php echo "<img src='css/img/gameicon/map.png'> ".htmlspecialchars($Info['Map']); ?></td>
+                <td><?php echo "<img src='css/img/gameicon/user.png'> ".htmlspecialchars($Info['Players']) . " / " . htmlspecialchars($Info['MaxPlayers']); ?></td>
+                <?php if($bansURL){ echo "<td><a href='".$bansURL."'><img src='css/img/gameicon/banlist.png'></a></td>";}?>
             </tr>
         <?php } ?>
 
@@ -133,8 +137,9 @@ if($bansenabled == "true") {
         echo ' <div class="alert alert-danger"> <b>Couldnt connect to bans db. Maybe your User or Password is wrong? </b>: ' . $e . '</div>';
     }
 }
-
 ?>
+
+
 <!--
 <div class="row" id="cards">
     <div class="col-sm-3">
